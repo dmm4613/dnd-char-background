@@ -1,6 +1,7 @@
 # models
 *_model.h5
 *_checkpoint.h5
+*_model.json
 
 
 # Byte-compiled / optimized / DLL files
