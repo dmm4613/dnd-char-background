@@ -7,22 +7,14 @@
 </head>
 <body>
     <h1>Enter Character Details</h1>
-    <form method="POST">
+    <form action="/predict" method="POST">
         <label for="character_name">Character Name:</label>
-        <input type="text" id="character_name" name="character_name">
-        
+        <input type="text" id="character_name" name="character_name" required>
         <label for="character_species">Character Species:</label>
-        <input type="text" id="character_species" name="character_species">
-        
+        <input type="text" id="character_species" name="character_species" required>
         <label for="character_class">Character Class:</label>
-        <input type="text" id="character_class" name="character_class">
-        
+        <input type="text" id="character_class" name="character_class" required>
         <button type="submit">Generate Background</button>
     </form>
-    
-    {% if generated_text %}
-    <h2>Generated Background:</h2>
-    <p>{{ generated_text }}</p>
-    {% endif %}
 </body>
 </html>
