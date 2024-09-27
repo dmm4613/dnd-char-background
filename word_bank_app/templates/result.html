@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Generated Character Backstory</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <h1>Character Backstory for {{ character_name }}</h1>
-    <p><strong>Original Backstory:</strong> {{ backstory }}</p>
-    <p><strong>Generated Text:</strong> {{ generated_text }}</p>
+    <h1>Character Backstory Ideas for {{ character_name }}</h1>
+    <p><strong>Random Backstory associated with species and race:</strong> {{ backstory }}</p>
+    <p><strong>Generated Text for {{ character_name }}:</strong> {{ generated_text }}</p>
     <a href="/">Go Back</a>
 </body>
 </html>
