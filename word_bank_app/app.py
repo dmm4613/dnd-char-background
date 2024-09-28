@@ -3,7 +3,7 @@ import pandas as pd
 import pickle
 from flask import Flask, request, render_template
 from tensorflow.keras.preprocessing.sequence import pad_sequences
-from models import generate_text, sample_with_temperature, clean_generated_text, add_filler_words_smart, generate_structured_text
+from models import generate_text, clean_generated_text, add_filler_words_smart, generate_structured_text
 
 # Load the cleaned dataset
 cleaned_df = pd.read_csv('cleaned_df.csv')
@@ -42,7 +42,8 @@ def predict_cluster():
 
     # Check if any encoding failed
     if -1 in [encoded_species, encoded_class]:
-        return "Error: Invalid species or class."
+        error_message = "Error: Invalid species or class."
+        return render_template('index.html', error=error_message)  # Pass the error to the template
 
     # Prepare feature array and predict the cluster
     input_features = np.array([[encoded_species, encoded_class]])

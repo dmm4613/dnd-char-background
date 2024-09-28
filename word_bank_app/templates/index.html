@@ -8,6 +8,12 @@
 </head>
 <body>
     <h1>Enter Character Details</h1>
+
+     <!-- Display the error message, if any -->
+    {% if error %}
+        <p class="error-message">** {{ error }}, please try again. **</p>
+    {% endif %}
+
     <form action="/predict" method="POST">
         <label for="character_name">Character Name:</label>
         <input type="text" id="character_name" name="character_name" required>
@@ -17,5 +23,26 @@
         <input type="text" id="character_class" name="character_class" required>
         <button type="submit">Generate Background</button>
     </form>
+
+    <!-- Loading spinner -->
+    <div id="loading-spinner" class="loading-spinner" style="display: none;"></div>
+
+    <script>
+        // JavaScript to show loading spinner when form is submitted
+        const form = document.getElementById('character-form');
+        const spinner = document.getElementById('loading-spinner');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();  // Prevent immediate submission
+
+            spinner.style.display = 'block';  // Show spinner
+
+            // Submit the form after showing the spinner
+            setTimeout(function() {
+                form.submit();  // Now submit the form
+            }, 100);  // Small delay to ensure spinner shows up
+        });
+    </script>
+
 </body>
 </html>
