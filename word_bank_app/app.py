@@ -70,11 +70,9 @@ def predict_cluster():
     # Generate text using the trained neural network
     generated_text = generate_text(seed_sequence, tokenizer, max_len)
     cleaned_text = clean_generated_text(generated_text)
-    filler_text = add_filler_words_smart(cleaned_text)
-    punctuated_text = generate_structured_text(filler_text)
 
     # Return the generated text as part of the response
-    return render_template('result.html', character_name=character_name, backstory=random_backstory, generated_text=punctuated_text)
+    return render_template('result.html', character_name=character_name, backstory=random_backstory, generated_text=cleaned_text)
 
 if __name__ == '__main__':
     app.run(debug=True)
