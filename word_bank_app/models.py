@@ -25,6 +25,10 @@ def generate_text(input_seq, tokenizer, max_len, temperature=0.2):
     # Encode the input sequence to get the initial state
     states_value = encoder_model.predict(input_seq)
 
+    # # Prepare the target sequence (start with the "start" token or first word)
+    # target_seq = np.zeros((1, 1))  # Decoder input starts with a single token
+    # target_seq[0, 0] = tokenizer.word_index.get('start', 1)  # Use 'start' token or default token
+
     # Prepare the target sequence using the seed sequence (first four words)
     target_seq = input_seq[:, :1]  # Start with the first word of the input sequence
 
@@ -32,12 +36,12 @@ def generate_text(input_seq, tokenizer, max_len, temperature=0.2):
     stop_condition = False
     generated_text = []
 
-    # If you want to preserve the first four words in the generated text
+     # If you want to preserve the first four words in the generated text
     # Add them directly to the generated_text list
     for word_id in input_seq[0]:
         if word_id != 0:  # Avoid padding tokens
             generated_text.append(tokenizer.index_word.get(word_id, ''))
-
+    
     while not stop_condition:
         # Predict the next word using decoder model
         output_tokens, h, c = decoder_model.predict([target_seq] + states_value)
@@ -46,8 +50,18 @@ def generate_text(input_seq, tokenizer, max_len, temperature=0.2):
         sampled_token_index = sample_with_temperature(output_tokens[0, -1, :], temperature)
         sampled_word = tokenizer.index_word.get(sampled_token_index, '')
 
-        # Add the word to the generated text
-        generated_text.append(sampled_word)
+        # Ignore <OOV> token
+        if sampled_word == '<OOV>':
+            continue  # Skip this word and go to the next iteration
+        
+        # Only add words that are adjectives (POS tag starts with 'JJ')
+        if sampled_word:
+            pos_tag = nltk.pos_tag([sampled_word])[0][1]  # Get POS tag of the word
+            if pos_tag in ('NN', 'JJR', 'JJS'):
+                generated_text.append(sampled_word)
+
+        # # Add the word to the generated text
+        # generated_text.append(sampled_word)
 
         # Stop if 'end' token is predicted or sequence is too long
         if sampled_word == 'end' or len(generated_text) >= max_len:

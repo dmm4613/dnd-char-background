@@ -17,7 +17,7 @@ with open('tokenizer.pkl', 'rb') as handle:
     tokenizer = pickle.load(handle)
 
 # Define max_len (make sure this matches the length used when training your seq2seq model)
-max_len = 100  # Adjust based on your model's training setup
+max_len = 20  # Adjust based on your model's training setup
 
 # Create a Flask app
 app = Flask(__name__)
