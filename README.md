@@ -38,14 +38,20 @@ ____
 ## Research Findings
 
 ### Data Blocker
-The main finding of my work on this project was I was heavily blocked by the access to data. My initial dataset was small, so I tried to generate more backstories with GPT4, but that was not done perfectly and created a large amount of rehashed backstories. I overfit my own data. In my experimental notebook two, I worked on the original dataset, without GPT4 help, and really focused on the main D&D classes and species from the new 2024 Player's Handbook. This didn't make any improvements, which led me to understand this blocker more clearly. 
+The main finding of my work on this project was I was heavily blocked by the access to data. My initial dataset was small, so I tried to generate more backstories with GPT4, but that was not done perfectly and created a large amount of rehashed backstories. I overfit my own data. It felt very much like someone created the best madlibs prompt and a 1000 people filled it in. Or like Bart Simpson learning a lesson.
+![bart_blackboard](https://github.com/user-attachments/assets/6adfc23e-efca-4756-a3b5-2623151c9799)
+
+In my experimental notebook two, I worked on the original dataset, without GPT4 help, and really focused on the main D&D classes and species from the new 2024 Player's Handbook. This didn't make any improvements, which led me to understand this blocker more clearly. 
 
 To work through this blocker, of course more time would be amazing, but also coming up with a better way of gathering this material. If I could find an active reddit group or other chat channel that would be willing to fill out surveys to get more backstories that would help tremedously, but again that takes time. The other idea is to come up with a better way of utilizing GPT4. I believe my issue was I asked for unique backstories in a batch of 1000. Maybe a smaller batch over more iterations would result in more variety. 
 
 ### seq2seq Text Generation
-My Neural Network worked. It did generate text, but the results were always outstanding, or even good. You can [view the demo here](notebook-one-eda.ipynb#product_demo)
-
-
+My Neural Network worked. It did generate text, but the results were always outstanding, or even good. 
 
 https://github.com/user-attachments/assets/853bcb45-178f-4585-a2cc-ff40865f9975
+
+I didn't train the network extensively, not due to time, but lack of a good connector, which is my second biggest blocker.
+
+### What a Cluster ...
+Due to my data size, my cluster creation and predictive model to determine which cluster to work with just never really made a big impact. At times I was predicting at 78%, but that was inflated. At my lows, I was predicting at 20%, which is worse than a guess I would say. This was definitely something I struggled with for a couple days. Working through different preprocessing steps, reworking those preporcessing steps, looking for better hyperparameters, anything to squeeze out a bit more accuracy, but in the end I do believe it is linked back to my dataset and its lack of substance. 
 
