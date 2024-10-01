@@ -44,3 +44,8 @@ To work through this blocker, of course more time would be amazing, but also com
 
 ### seq2seq Text Generation
 My Neural Network worked. It did generate text, but the results were always outstanding, or even good. You can [view the demo here](notebook-one-eda.ipynb#product_demo)
+
+
+
+https://github.com/user-attachments/assets/853bcb45-178f-4585-a2cc-ff40865f9975
+
