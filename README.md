@@ -58,3 +58,6 @@ I didn't train the network extensively, not due to time, but lack of a good conn
 ### What a Cluster ...
 Due to my data size, my cluster creation and predictive model to determine which cluster to work with just never really made a big impact. At times I was predicting at 78%, but that was inflated. At my lows, I was predicting at 20%, which is worse than a guess I would say. This was definitely something I struggled with for a couple days. Working through different preprocessing steps, reworking those preporcessing steps, looking for better hyperparameters, anything to squeeze out a bit more accuracy, but in the end I do believe it is linked back to my dataset and its lack of substance. 
 
+## Future Work
+This project, put plainly, requires more time and resources. With those, I believe it is more likely to create a product that can work well enough. Of course, things would be easier using a pretrained model that has been working for a while now, but where is the fun in that?
+
