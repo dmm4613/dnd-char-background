@@ -5,6 +5,9 @@
 ## Goals
 My hopes for this exploration and technical modeling project is to create a product that takes in user output (Character Name, Character Species, and Character Class), and returns to the user a generated backstory. 
 
+![character_pixelated_reroll_app](https://github.com/user-attachments/assets/aa6d8b87-4463-4c9e-a69d-b36c7e1339e9)
+
+
 ### How to accomplish this?
 I am utilizing both the database created by [@janelleshane](https://github.com/janelleshane/DnD_bios) and ChatGPT4 to generate brief backstories. I also got a few backstories from some friends. I combined all of these into one dataset and worked on cleaning and preprocessing the data. My focus was to clean up the backstories and remove any stopwords and lemmentize words. This was to prepare the data for a seq2seq model I would train. 
 
